@@ -4,15 +4,19 @@ import com.bailuning.operation.code.common.CommonResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.util.HashMap;
 import java.util.Map;
-@Component
+
+@RestControllerAdvice
 public class ExceptionsHandler {
 
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
     public Object handlerException(Exception ex) {
         Map<String ,Object> responseData = new HashMap<>();
         if(ex instanceof CommonException){
