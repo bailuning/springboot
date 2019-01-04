@@ -9,7 +9,9 @@ public class CommonResponse {
     public static CommonResponse getSuccessResponse(Object result){
        return getResponse(result,"SUCCESS");
     }
-
+    public static CommonResponse getFailResponse(Object result){
+        return getResponse(result,"FAIL");
+    }
     public static CommonResponse getResponse(Object result, String status){
         CommonResponse commonResponse = new CommonResponse();
         commonResponse.setStatus(status);

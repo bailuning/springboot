@@ -34,12 +34,15 @@ public class helloController {
         UserEntity userEntity = userServiceImpl.getUserById(id);
         try {
             if(userEntity ==null){
-                throw new CommonException(CommonErrorEnum.UN_VALIDATION_ERROR);
+                CommonResponse.getFailResponse(userEntity);
+//                throw new CommonException(CommonErrorEnum.UN_VALIDATION_ERROR.setErrorMsg("用户数据为空"));
             }
 //            UserEntity user = null;
 //            user.setId(1);
         }catch (Exception e){
+            e.printStackTrace();
             logger.info(UserExceptionEnum.USER_EXCEPTION.errorMsg(),e);
+//            return CommonResponse.getFailResponse(userEntity);
             throw new CommonException(UserExceptionEnum.USER_EXCEPTION.setErrorMsg("用户不存在哦"),e);
         }
 
