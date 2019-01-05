@@ -7,3 +7,7 @@
 统一返回结果 Restful风格实现
 
 loback日志 配置已完成
+
+http://localhost:8080/get?id=1
+
+http://localhost:8080/get?id=a
