@@ -1,4 +1,4 @@
-package com.bailuning.operation.common.exception;
+package com.bailuning.operation.code.exception;
 
 import com.bailuning.operation.code.exception.ICommonError;
 
