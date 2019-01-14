@@ -12,8 +12,6 @@ public class CommonException extends RuntimeException implements ICommonError, S
     private ICommonError ICommonError;
 
     private Exception innerException;
-
-    private ICommonError errMsg;
     /**
      * 此方法，直接用于接收 CommonErrorEnum枚举类的参数用于构造公共异常
      * @param iCommonError
