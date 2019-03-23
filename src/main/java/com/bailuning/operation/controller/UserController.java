@@ -15,7 +15,7 @@ public class UserController {
 
 //    private final Logger logger = LoggerFactory.getLogger(UserController.class);
 //
-//    @Value("${application.message:Hello World}")
+//    @Value("${application.properties.message:Hello World}")
 //    private String message ;
 //
 //    @GetMapping("/asd/{name}")

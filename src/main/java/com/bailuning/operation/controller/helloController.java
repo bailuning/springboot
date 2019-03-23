@@ -1,6 +1,7 @@
 package com.bailuning.operation.controller;
 
 import com.bailuning.operation.code.common.CommonResponse;
+import com.bailuning.operation.code.common.IPUtils;
 import com.bailuning.operation.code.exception.CommonErrorEnum;
 import com.bailuning.operation.code.exception.CommonException;
 import com.bailuning.operation.code.exception.UserExceptionEnum;
@@ -9,10 +10,13 @@ import com.bailuning.operation.service.UserServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpServletRequest;
 
 @RestController
 public class helloController {
@@ -21,9 +25,16 @@ public class helloController {
     @Autowired
     private UserServiceImpl userServiceImpl;
 
+
+
+    @Value("${application.properties.message}")
+    private String message;
+
     @RequestMapping(value = "/hello")
-    public String hello(){
-        return "hello word!";
+    public String hello(HttpServletRequest request){
+        IPUtils.getIpAddr( request);
+        System.out.println(IPUtils.getIpAddr( request));
+        return message+IPUtils.getIpAddr( request);
     }
 
     @RequestMapping(value = "/get")
@@ -44,6 +55,15 @@ public class helloController {
             throw new CommonException(UserExceptionEnum.USER_EXCEPTION.setErrorMsg("用户不存在哦"),e);
         }
 
+        return CommonResponse.getSuccessResponse(userEntity);
+    }
+    @RequestMapping(value = "/add")
+    @ResponseBody
+    public CommonResponse add(){
+        UserEntity userEntity = new UserEntity();
+        userEntity.setName("小白");
+        userEntity.setSex("1");
+        userServiceImpl.add(userEntity);
         return CommonResponse.getSuccessResponse(userEntity);
     }
 }
