@@ -15,7 +15,7 @@ public class ShortUrlUtils {
     static Logger logger = LoggerFactory.getLogger(LinkServiceImpl.class);
 
     /**
-     * 生成端短连接信息
+     * 生成端短连接信息 app_key 202088835 2174119991
      */
     public static String getWeiBoShortUrl(String url) {
         try {
