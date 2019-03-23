@@ -1,4 +1,4 @@
-package com.bailuning.operation.interfaces;
+package com.bailuning.operation.service;
 
 import com.bailuning.operation.entity.UserEntity;
 

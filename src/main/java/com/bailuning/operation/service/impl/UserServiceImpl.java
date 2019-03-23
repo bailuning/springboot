@@ -1,9 +1,8 @@
-package com.bailuning.operation.service;
+package com.bailuning.operation.service.impl;
 
-import com.bailuning.operation.dao.UserMapper;
+import com.bailuning.operation.mapper.UserMapper;
 import com.bailuning.operation.entity.UserEntity;
-import com.bailuning.operation.interfaces.IUserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.bailuning.operation.service.IUserService;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 

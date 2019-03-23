@@ -1,4 +1,4 @@
-package com.bailuning.operation.dao;
+package com.bailuning.operation.mapper;
 
 import com.bailuning.operation.entity.UserEntity;
 import org.apache.ibatis.annotations.Mapper;
